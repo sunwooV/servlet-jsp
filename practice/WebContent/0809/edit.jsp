@@ -7,8 +7,8 @@
 	String quantity = request.getParameter("quantity");
 	String price = request.getParameter("price");
 	String searchId = request.getParameter("searchId");
-	String editId = request.getParameter("editId");
-	String editProdId = request.getParameter("editProdId");
+	String editId = order_num;
+	String editProdId = prod_id;
 %>
 <!DOCTYPE html>
 <html>

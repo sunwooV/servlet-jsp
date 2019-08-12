@@ -71,9 +71,6 @@ public class OrderDAO {
 		return list;
 	}
 	
-	
-
-	
 	public void editOrder(OrderVO vo) {
 		try {
 			String num = vo.getNum();

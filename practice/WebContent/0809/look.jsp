@@ -38,8 +38,6 @@
 		String quantity = vo.getQuantity();
 		String price = vo.getPrice();
 		String searchId = vo.getSearchId();
-		String editId = num;
-		String editProdId = prodId;
 
 %>
 	<tr align=center>
@@ -49,7 +47,7 @@
 		<td><%=name %></td>
 		<td><%=quantity %></td>
 		<td><%=price %></td>
-		<td><a href='searchOrder?command=editOrder&num=<%=num %>&item=<%=item %>&name=<%=name %>&quantity=<%=quantity %>&price=<%=price %>&searchId=<%=searchId%>&prodId=<%=prodId%>%editId=<%=editId%>&editProdId=<%=editProdId%>'>수정</a></td>
+		<td><a href='searchOrder?command=editOrder&num=<%=num %>&item=<%=item %>&name=<%=name %>&quantity=<%=quantity %>&price=<%=price %>&searchId=<%=searchId%>&prodId=<%=prodId%>'>수정</a></td>
 		<td><a href='searchOrder?command=delOrder&num=<%=num %>&searchId=<%=searchId%>&prodId=<%=prodId%>'>삭제</a></td>
 	</tr>
 	

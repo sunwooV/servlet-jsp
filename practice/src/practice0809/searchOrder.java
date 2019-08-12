@@ -58,17 +58,12 @@ public class searchOrder extends HttpServlet {
 			String _item = request.getParameter("order_item");
 			String _quantity = request.getParameter("quantity");
 			String _price = request.getParameter("item_price");
-			String _id = request.getParameter("editId"); //수정할 order_num
-			String _prodId2 = request.getParameter("editProdId"); //수정할 prod_id
-
 			
 			vo.setNum(_num);
 			vo.setProdId(_prodId);
 			vo.setItem(_item);
 			vo.setQuantity(_quantity);
 			vo.setPrice(_price);
-			vo.setEditId(_id);
-			vo.setEditProdId(_prodId2);
 			
 			request.setAttribute("list", list);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./0809/edit.jsp");
