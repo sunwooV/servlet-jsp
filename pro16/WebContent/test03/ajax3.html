@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax3</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- 제이쿼리를 사용하기 위해 반드시 설정 -->
+<script type="text/javascript">
+	function fn_process(){
+		var _id = $('#t_id').val();
+		if(_id ==''){
+			alert("ID를 입력하세요.");
+			return;
+		}
+	
+		$.ajax({
+			type:"post", //get 방식으로 전송
+			async:false, //false인 경우 동기식으로 처리
+			url:"http://localhost:8090/pro16/mem", //전송할 서블릿을 지정
+			dataType: "text",
+			data:{id: _id}, //서버로 매개변수와 값을 설정
+			success:function (data, textStatus){ //전송과 응답이 성공했을 경우
+				if(data == 'usable'){ //서버에서 전송된 결과에 따라 메시지를 표시
+					$('#message').text("사용할 수 있는 ID입니다.");
+					$('#btn_duplicate').prop("disabled", true); //사용할 수 있는 ID면 버튼을 비활성화
+				} else{
+					$('#message').text("사용할 수 없는 ID입니다.");				
+				}
+			},
+			error:function(data, textStatus){ //작업 중 오류가 발생했을 경우
+				alert("에러가 발생했습니다.");
+			},
+			complete:function(data, textStatus){ //완료 시 수행할 작업 설정
+				alert("작업을 완료했습니다.");
+			}
+		});
+	}
+
+</script>
+</head>
+<body>
+	<input type="text" id="t_id"/>
+	<input type="button" id="btn_duplicate" value="ID 중복체크하기" onClick="fn_process()"/><br><br>
+	<div id="message"></div>
+</body>
+</html>
