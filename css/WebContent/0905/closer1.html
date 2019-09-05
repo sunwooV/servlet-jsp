@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클로저:중첩함수</title>
+</head>
+<body>
+<script>
+	function makefunc(x){
+		return function(){return x;}
+	}
+	//리턴된 함수를 배열요소에 저장
+	var a = [makefunc('x'), makefunc('y'), makefunc('z')];
+	alert(a[0]()); //x출력
+	alert(a[1]()); //y출력
+	alert(a[2]()); //z출력
+</script>
+</body>
+</html>

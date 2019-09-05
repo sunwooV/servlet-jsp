@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript 함수예제 1</title>
+</head>
+<body>
+<script>
+	//함수를 전역변수에 할당
+	function square(x){return x*x;}
+	var a = square(4);
+	console.log(a); //16
+	var b = square; //b는 함수를 가리킨다.
+	var c = b(5); 
+	console.log(c); //25
+	
+	//함수를 객체 Property에 할당
+	var o = new Object();
+	o.square = function(x) {return x*x;}
+	var y = o.square(16);
+	console.log(y); //16*16 = 256
+	
+	//배열원소에 함수 할당
+	var a = new Array(3);
+	a[0] = function(x){return x*x;}
+	a[1] = 20;
+	a[2] = a[0](a[1]); //function(20)이랑 같음
+	console.log(a[2]); //400
+	
+	//객체의 Property를 배열로 전달
+	var o = {
+			name:'sunwoo',
+			age:23
+	}
+	function copyPropertyNamesToArray(o,a){
+		if(!a) a = []; // a = a||[]; => a가 없으면 빈 배열을 만들어주고, 있으면 있는 a에 push
+		for(var property in o){
+			a.push(property);
+		}
+		return a;
+	}
+	alert(copyPropertyNamesToArray(o));
+	//함수를 데이터로 사용하기
+	function add(x,y){return x+y;}
+	function subtract(x,y){return x-y;}
+	function multiply(x,y){return x*y;}
+	function divide(x,y){return x/y;}
+	//위의 함수를 전달인자로 받아서 사용
+	function operate(operator, operand1, operand2){
+		return operator(operand1, operand2);
+	}
+	var i = operate(add, operate(add, 2, 3), operate(multiply, 4, 5));
+	console.log(i); // (2+3)+(4*5) = 25
+	var operators = {
+			add:function(x,y){return x+y;},
+			substract:function(x,y){return x-y;},
+			multiply:function(x,y){return x*y;},
+			divide:function(x,y){return x/y;},
+			pow:Math.pow //이미 정의된 함수도 사용 - pow:제곱
+	}
+	function operate2(op_name, operand1, operand2){
+		if(typeof operators[op_name] == 'function'){
+			return operators[op_name](operand1, operand2);
+		} else throw 'unknow operator'; //알 수 없는 연산자
+	}
+	var j = operate2('add', 'hello', operate2('add', ' ', 'world'));
+	console.log(j); //hello world
+	var k = operate2('pow', 10, 2);
+	console.log(k); //100 (10의 2제곱)
+</script>
+</body>
+</html>

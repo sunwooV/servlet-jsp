@@ -72,7 +72,7 @@ public class CustomerServlet extends HttpServlet {
 			vo.setSearchId(_id);
 			customer = dao.customerList(vo);
 
-			if(customer.size() == 0) {
+			if(customer.size() == 0) { //해당된 고객번호가 없을 때
 				error.put("error_yn", "Y");
 				error.put("error_text", "고객이 존재하지 않습니다.");
 				
@@ -82,6 +82,7 @@ public class CustomerServlet extends HttpServlet {
 				writer.print(jsonInfo);
 				return;
 			}
+		
 	
 			customerInfo.put("id", ((Customer)customer.get(0)).getId());
 			customerInfo.put("name", ((Customer)customer.get(0)).getName());

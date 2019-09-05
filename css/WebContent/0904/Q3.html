@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문제 3</title>
+<script>
+</script>
+</head>
+<body>
+피라미드 출력하기: alert or console.log 사용
+
+<script>
+	var output = '';
+	for(var i=0;i<15;i++){
+		for(var j=15;j>i;j--){
+			output += ' ';
+		}
+		for(var k=0;k<2*i-1;k++){
+			output += '*';
+		}
+		output += '\n';
+	}
+	alert(output);
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css position 예제</title>
+<style>
+span, div {
+ background: yellow;
+ border: 1px solid red;
+}
+.top {
+ position: relative;
+ top: 5px;
+ z-index: 1;
+}
+.right {
+ position: relative;
+ right: 5px;
+}
+.bottom {
+ position: relative;
+ bottom: 5px;
+}
+.left {
+ position: relative;
+ left: 5px;
+}
+</style>
+</head>
+<body>
+ <span class="top">top</span>
+ <span class="right">right</span>
+ <span class="bottom">bottom</span>
+ <div class="left">left</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클로저를 사용한 private 멤버변수</title>
+</head>
+<body>
+<script>
+	function makeProperty(o, name, predicate){
+		var value; //private 변수
+		//getter 메서드
+		o['get'+name] = function(){return value;};
+		
+		//setter 메서드
+		o['set'+name] = function(v){
+			if(predicate && !predicate(v)) //메서드가 존재하고 false를 리턴하면
+				throw 'set'+name+': invalid value ' + v; //string이 아니면 오류
+			else
+				value = v;
+		}
+	}
+	var o={};
+	//Name Property 추가, set은 string만 가능
+	makeProperty(o, 'Name', function(x){return typeof x == 'string';});
+	o.setName('Frank'); //값 설정
+	console.log(o.getName()); //값 출력
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>실습 3</title>
+</head>
+<body>
+3. 두 정수 a, b가 주어졌을 때 a와 b 사이에 속한 모든 정수의 합을 리턴하는 함수
+<script>
+	var a = 4;
+	var b = 1;
+	function calculate3(a, b) {
+		var result = 0;
+		if(a > b){
+			var temp = b;
+			b = a;
+			a = temp;
+		} //-> b가 큰 숫자가 됨
+		for(var i=a+1;i<b;i++){
+			result += i;
+		}
+		return result;
+	}
+	alert(calculate3(a,b));
+</script>
+</body>
+</html>

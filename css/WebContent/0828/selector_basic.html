@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS3 Selector Basic</title>
+<style>
+	option:checked{
+		background-color:yellow;
+	}
+	input[type="checkbox"]:checked{
+		width:20px;
+		height:20px;
+	}
+	input[type="radio"]:checked{
+		margin-left:25px;
+	}
+</style>
+</head>
+<body>
+
+<h3>option 요소</h3>
+<select>
+	<option value="20">20대</option>
+	<option value="30">30대</option>
+	<option value="40">40대</option>
+</select>
+<form action="url" method="post">
+	<h3>Type="checkbox"</h3>
+	<input type="checkbox" name="food" value="fruit">과일<br>
+	<input type="checkbox" name="food" value="sea">해조류<br>
+	<input type="checkbox" name="food" value="meat">육류
+	
+	<h3>Type="radio"</h3>
+	<input type="radio" name="media" value="ie">Internet Explorer<br>
+	<input type="radio" name="media" value="gc">Google chrome<br>
+	<input type="radio" name="media" value="ff">FireFox
+</form>
+
+</body>
+</html>

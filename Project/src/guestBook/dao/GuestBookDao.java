@@ -61,7 +61,9 @@ public class GuestBookDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			String query = "select * from (select rownum rnum, a.* from guestbook_message a) where rnum >= ? and rnum <= ? order by message_id asc ";
+			String query = "select * from (select row_number() over(order by message_id) rnum, a.* from guestbook_message a order by message_id asc) where rnum >= ? and rnum <= ? order by rnum asc ";
+			
+//			select * from (select rownum rnum, a.* from guestbook_message a) where rnum >= ? and rnum <= ? order by message_id asc 
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, firstRow);
 			pstmt.setInt(2, endRow);

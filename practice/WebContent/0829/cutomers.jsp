@@ -64,11 +64,24 @@
 					$('#copyId').val(jsonInfo.customers[0].id);
 					$('#name').val(jsonInfo.customers[0].name);
 					$('#address').val(jsonInfo.customers[0].address);
-					$('#state').val(jsonInfo.customers[0].state);
+					
 					$('#zip').val(jsonInfo.customers[0].zip);
 					$('#country').val(jsonInfo.customers[0].country);
 					$('#contact').val(jsonInfo.customers[0].contact);
 					$('#email').val(jsonInfo.customers[0].email);
+					
+					//select box에 들어갈 value
+					var stateList = "<select name='stateList'>"; 
+					stateList += "<option value = '" + jsonInfo.customer[0].state +"' selected>"
+					+ jsonInfo.customer[0].state + "</option>";
+					for(var i in jsonInfo.stateList){
+						stateList += ("<option value = '" + jsonInfo.stateList[i] +"'>"
+								+ jsonInfo.stateList[i] + "</option>");
+					}
+					stateList += "</select>"
+					
+					$("#stateList").html(stateList);
+					
 				} else if(_command == 'save'){
 					alert("저장되었습니다.");
 				}
@@ -113,7 +126,7 @@
 
 			<tr>
 				<td bgcolor=lightpink>고객주</td>
-				<td><input type="text" id="state"></td>
+				<td><div id="stateList"></div></td>
 			</tr>
 
 			<tr>

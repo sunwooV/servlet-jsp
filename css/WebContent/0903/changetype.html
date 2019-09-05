@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자료형 변환 예제</title>
+<script>
+function join(){
+	//숫자를 스트링으로 바꾸기
+	var tt = 2;
+	tt += "";
+	alert(typeof tt); //Result:string
+	
+	//숫자를 스트링으로 바꾸기
+	var tt = 123456.789;
+	tt = tt.toString();
+	alert(typeof tt); //Result:string
+	
+	//숫자를 스트링으로 바꾸기
+	var tt = 123456.789;
+	tt = tt.toFixed(0);
+	alert(typeof tt); //Result:string
+	
+	//boolean과 숫자 연산
+	var tt = true;
+	tt = tt + 1; //2
+	alert(typeof tt); //Result:number
+	
+	//boolean과 문자 연산
+	var tt = true;
+	tt = tt + "1"; //true
+	alert(typeof tt); //Result:string
+	
+	//스트링을 숫자로 바꾸기
+	var tt = "2";
+	tt *= 1;
+	alert(typeof tt); //Result:number
+	
+	//숫자를 스트링으로 바꾸기
+	var tt = 2;
+	alert(typeof tt); //Result:number
+	tt = String(tt);
+	alert(typeof tt); //Result:string
+	
+	//스트링을 숫자로 바꾸기
+	var tt = "2";
+	alert(typeof tt); //Result:string
+	tt = Number(tt); //숫자만 변환 가능
+	alert(typeof tt); //Result:number
+	
+	var tt = "3.14 AA";
+	alert(typeof tt); //Result:string
+	tt = parseInt(tt); //정수만 변환가능
+	alert(typeof tt); //Result:number
+	
+	var tt = "3.14 AA";
+	alert(typeof tt); //Result:string
+	tt = parseFloat(tt); //실수도 변환가능
+	alert(typeof tt); //Result:number
+}
+</script>
+</head>
+<body>
+<input type="button" value="실행하기" onClick="join()">
+</body>
+</html>

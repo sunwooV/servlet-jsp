@@ -64,6 +64,8 @@ public class CustomerServlet extends HttpServlet {
 		vo.setId(_id);
 		customer = dao.customerList(vo);
 		
+		
+		
 		customerInfo.put("id", customer.getId());
 		customerInfo.put("name", customer.getName());
 		customerInfo.put("address", customer.getAddress());

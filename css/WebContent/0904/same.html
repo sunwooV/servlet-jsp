@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>일치 연산자</title>
+<script>
+	//비교 연산자
+	alert('' == false); //true -> 0/''/false의 비교는 true
+	alert('' == 0); //true
+	alert(0 == false); //true
+	alert('273' == 273); //true -> 비교 시 숫자로 변환
+	alert(0 == null); //false
+	alert(0 == undefined); //false
+	alert(null == undefined); //true
+	
+	//일치 연산자 : 자료형과 값 일치 여부
+	alert('' === false); //false
+	alert('' === 0); //false
+	alert(0 === false); //false
+	alert('273' === 273); //false
+	alert(null === undefined); //false
+</script>
+</head>
+<body>
+
+</body>
+</html>

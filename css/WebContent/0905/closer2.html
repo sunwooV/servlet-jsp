@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클로저를 사용하여 Counter 만들기</title>
+</head>
+<body>
+<script>
+	//아래 소스는 외부에서 counter값을 변경할 수 있는 문제가 존재함
+	uniqueInteger.counter=0;
+	function uniqueInteger(){
+		return uniqueInter.counter++;
+	}
+	
+	//클로저를 이용해 해결한 소스
+	var uniqueID = (function(){
+		var id = 0;
+		return function(){return id++};
+	})(); //끝에 ()를 추가해서 'function 호출' 의미
+	
+	alert(uniqueID()); //0
+	alert(uniqueID()); //1
+</script>
+</body>
+</html>
