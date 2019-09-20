@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript 객체문제</title>
+</head>
+<body>
+<script>
+/*
+	//1. 객체의 Property를 배열로 반환
+	
+	var o = {
+			name:'sunwoo',
+			age:23
+	}
+
+	function getPropertynames(o){
+		var arr=[]; //빈 배열 준비
+		for(var i in o){
+			arr += i + ' ';
+		}
+		return arr;
+	}
+	
+	alert(getPropertynames(o));
+*/	
+	
+
+	//2. 객체를 Copy해서 동일한 객체를 리턴
+	
+	var o = {
+			name:'sunwoo',
+			age:23,
+			
+			toString : function(){
+				var output = '';
+				for(var key in this){//key는 속성명
+					//toString() 메서드는 출력하지 않게 합니다.
+					if(key != 'toString'){
+						output += key + '\t' + this[key] + '\n'; //key:property, this[key]:property value
+					}
+				}
+				return output;
+			}
+	}
+	
+	function copyProperties(o, obj){
+		if(!obj) obj={};
+		
+		for(var i in o) obj[i] = o[i];
+		return obj;
+	}
+	alert(copyProperties(o).toString());
+
+	
+	//3. From의객체를 to로 Copy하되 to에 없는 속성만 Copy
+	
+	var from = {
+			name:'sunwoo',
+			age:23,
+			
+			toString : function(){
+				var output = '';
+				for(var key in this){//key는 속성명
+					//toString() 메서드는 출력하지 않게 합니다.
+					if(key != 'toString'){
+						output += key + '\t' + this[key] + '\n'; //key:property, this[key]:property value
+					}
+				}
+				return output;
+			}
+	}
+	
+	var to = {
+			name:'sunwoo',
+			
+			toString : function(){
+				var output = '';
+				for(var key in this){//key는 속성명
+					//toString() 메서드는 출력하지 않게 합니다.
+					if(key != 'toString'){
+						output += key + '\t' + this[key] + '\n'; //key:property, this[key]:property value
+					}
+				}
+				return output;
+			}
+	}
+	
+	function copyUndefineProperties(from, to){
+		for(var i in from){
+			if(!(i in to)) to[i] = from[i];
+		}
+		return to;
+	}
+	
+	alert(copyUndefineProperties(from, to).toString());
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript event 예제</title>
+</head>
+<body>
+	<!-- 버튼 누르면 창 뜨기 -->
+	<input type="button" value="Press Me" onclick="alert('thanks');">
+	
+	<!-- 버튼 누르면 숫자 증가 -->
+	<input type="button" value="click here" onclick="if(window.numclicks) numclicks++; else numclicks =1;this.value='Click#'+numclicks;">
+	
+	
+	<script>
+		document.f1.b1.onclick = function(){alert('Thanks!!');}
+	</script>
+	<form name="f1">
+		<input name="b1" type="button" value="Press Me">
+	</form>
+	
+	
+	<script>
+		var b = document.myform.mybutton;
+		var oldHandler = b.onclick;
+		function newHandler(){
+			alert('newHandler');
+		}
+		b.onclick = function(){
+			oldHandler();
+			newHandler();
+		}
+	</script>
+	<form name="myform">
+		<input name='mybutton' type='button' value='Press Me'>
+	</form>
+	
+	<form action='action.do' onsubmit="if(this.elements[0].value.length == 0) return false;">
+		<input type="text">
+	</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클로저 책 예제</title>
+</head>
+<body>
+<script>
+	var name = 'sunwoo';
+	function test(name){
+		var output = 'Hello ' + name + ' ..!'; //private 멤버변수 (지역변수)
+		//내부메서드에서는 private 멤버변수 사용가능
+		return function(){ //내부 메서드
+			alert(output);
+		};
+	}
+	test('JavaScript')();
+</script>
+</body>
+</html>

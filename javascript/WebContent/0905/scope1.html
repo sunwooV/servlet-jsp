@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수단위 유효범위</title>
+</head>
+<body>
+<script>
+	function scopeTest(){
+		var a = 0;
+		if(true){
+			var b = 0;
+			for(var c=0;c<5;c++){
+				console.log("c1="+c);
+			}
+			console.log("c2="+c);
+		}
+		console.log("b="+b); //block 외부에서 b에 접근 가능 => 블록단위 유효범위가 없다
+	}
+	scopeTest();
+</script>
+</body>
+</html>

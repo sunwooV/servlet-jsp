@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript history 예제</title>
+</head>
+<body>
+<script>
+	function history_back(){
+		history.back();
+	}
+	
+	function history_forward(){
+		history.forward();
+	}
+	
+	function history_go(){
+		var page = document.frm.txtGo.value;
+		history.go(page);
+	}
+</script>
+<form name='frm'>
+	<input type="button" value="back" onclick="history_back()">
+	<input type="button" value="forward" onclick="history_forward()">
+	<br>history에 저장된 페이지 수 : <script>document.write(history.length);</script>
+	<br>이동하고 싶은 전 페이지 수 : <input type="text" name="txtGo" value="-2" size="4">
+	<input type="button" value="go" onclick="history_go()">
+</form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 함수필터 선택자 예제</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function(){
+		$("p:nth-child(3)").css("background-color", "yellow"); //13, 23, 33
+		//$("p:first-of-type").css("background-color", "yellow"); //12, 22, 31
+		//$("p:first-child").css("background-color", "yellow"); //31
+	});
+</script>
+</head>
+<body>
+	<h1>11:This is a heading inbody</h1>
+	<p>12:AAAAAAAAA</p>
+	<p>13:BBBBBBBBB</p>
+	
+	<div style="border:1pxsolid;">
+	 <span>21:This is a span element in div</span>
+	 <p>22:AAAAAAAAA</p>
+	 <p>23:BBBBBBBBB</p>
+	 <p>24:CCCCCCCC</p>
+	</div><br>
+	
+	<div style="border:1pxsolid;">
+	 <p>31:AAAAAAAAA</p>
+	 <p>32:BBBBBBBBB</p>
+	 <p>33:CCCCCCCC</p>
+	</div>
+	<p>14:CCCCCCCCC</p>
+</body>
+</html>

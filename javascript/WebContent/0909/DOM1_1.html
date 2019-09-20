@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>replaceChild</title>
+</head>
+<body>
+<script>
+	function myFunction(){
+		var textnode = document.createTextNode("Water");
+		var item = document.getElementById("myList").childNodes[0];
+		item.replaceChild(textnode, item.childNodes[0]);
+		//childNodes를 쓸 땐 엔터를 치거나 스페이스도 모두 node로 처리해서
+		//<ul id="myList"><li>Coffee</li><li>Tea</li><li>Milk</li></ul>
+		//이렇게 붙여서 써야 원하는 결과가 나온다.
+	}
+</script>
+<ul id="myList"><li>Coffee</li><li>Tea</li><li>Milk</li></ul>
+<button onclick="myFunction()">Try it</button>
+</body>
+</html>

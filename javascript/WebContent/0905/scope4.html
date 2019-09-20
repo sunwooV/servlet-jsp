@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>변수 선언문을 끌어 올린다.</title>
+</head>
+<body>
+<script>
+	function hoistingExam(){
+		console.log("value="+value);  //undefined
+		//아래 선언된 변수를 사용해서 오류는 나지 않음 but, undefined 출력
+		var value = 10;
+		console.log("value="+value); //10
+	}
+	hoistingExam();
+</script>
+</body>
+</html>

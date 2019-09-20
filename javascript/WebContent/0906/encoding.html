@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인코딩과 디코딩 함수</title>
+</head>
+<body>
+<script>
+	var URI = 'http://hanb.co.kr?test=한글입니다.';
+	
+	//escape : 적절한 정도로 인코딩
+	//영문알파벳,숫자,일부특수문자(@,*,-,_,+,.,/)를 제외하고 인코딩
+	alert(escape(URI)); //http%3A//hanb.co.kr%3Ftest%3D%uD55C%uAE00%uC785%uB2C8%uB2E4.
+	//encodeURI : 최소한의 문자만 인코딩
+	//적절한정도+인터넷 주소에 사용되는 일부특수문자(:,;,/,=,?/&)제외하고
+	alert(encodeURI(URI)); //http://hanb.co.kr?test=%ED%95%9C%EA%B8%80%EC%9E%85%EB%8B%88%EB%8B%A4
+	//encodeURIComponent:대부분의 문자를 모두 인코딩
+	//영문알파멧과 숫자를 제외한 모든 문자 인코딩
+	alert(encodeURIComponent(URI)); //http%3A%2F%2Fhanb.co.kr%3Ftest%3D%ED%95%9C%EA%B8%80%EC%9E%85%EB%8B%88%EB%8B%A4.
+</script>
+</body>
+</html>

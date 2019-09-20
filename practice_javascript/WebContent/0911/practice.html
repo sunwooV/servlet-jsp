@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>리스트의 엘리먼트를 알파벳 순으로 정렬</title>
+<script>
+	function sortkids(e){
+		var result = []; //sort한 후의 결과를 저장할 배열
+		var element = document.getElementsByTagName("li");
+		
+        //console.log(element);
+		
+		for(var i=0;i<element.length;i++){
+			result.push(element[i].childNodes[0].data); //c b a d
+		    //result.push(element[i].childNodes[0].nodeValue); //이것도 된다.
+		}
+		
+		result.sort(); //a b c d
+
+		for(var i=0;i<element.length;i++){ //sort된걸 html에 표시
+			element[i].innerHTML = result[i]; //innerHTML:change the HTML content
+		}
+	}
+</script>
+</head>
+<body>
+	<ul id='list'>
+		<li>c</li><li>b</li><li>a</li><li>d</li>
+	</ul>
+ <button onclick="sortkids('list')">Sort list</button>
+</body>
+</html>

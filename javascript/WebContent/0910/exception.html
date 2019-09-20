@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript 예외예제</title>
+</head>
+<body>
+<script>
+//1. 안에서 예외 처리를 안해주면 finally 후 outer로 나와서 처리한다.
+	try{
+		try{
+			throw new Error("oops");
+			//throw 'error입니다.'
+		} finally{
+			console.log("finally");
+		}
+	} catch(ex){
+		console.log("outer", ex.message);
+	}
+	/*
+	finally
+	outer oops
+	*/
+	
+//2.
+	try{
+		var array = new Array(999999999999);
+	} catch(exception){
+		console.log('11:' + exception.message);
+		console.log('22:' + exception.description);
+		console.log('33:' + exception.name);
+	}
+	/*
+	11:Invalid array length
+	exception.html:30 22:undefined
+	exception.html:31 33:RangeError
+	*/
+	
+	
+//3. 안에서 예외 처리를 해주면 inner에서 처리 후 finally를 하고 outer는 x
+	try{
+		try{
+			throw new Error("oops");
+		} catch(ex){
+			console.error("inner", ex.message);
+		} finally{
+			console.log("finally");
+		}
+	} catch(ex){
+		console.error("outer", ex.message);
+	}
+	/*
+	inner oops
+	finally
+	*/
+</script>
+</body>
+</html>

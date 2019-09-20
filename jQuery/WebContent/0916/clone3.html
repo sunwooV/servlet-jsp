@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>clone 예제 3</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function(){
+		var cloneEle = $(".testTd").clone(); //선택한 요소를 복사
+		cloneEle.text("B1"); //복사한 요소의 text를 변경
+		
+		$(".testTr").append(cloneEle); //복사한 요소를 tr의 자식 요소로 추가
+		//테이블의 행에 hover 이벤트를 부착
+		$(".testTr").hover(function(){
+			$(this).css("background", "#c9c9c9"); //마우스 가져갔을 때
+		}, function(){
+			$(this).css("background", "#fff"); //마우스 땠을 때
+		});
+		
+		$('#btnAction').on("click", function(e){ //on():이벤트 연결
+			var c1 = $('#t1 tr:eq(0)').clone(true); //#t1 tr:eq(0):id가 t1인 안에 있는 tr의 첫번째 요소를 복제
+			$("#t1").append(c1);
+		});
+	});
+</script>
+</head>
+<body>
+	<table id="t1">
+		<tr class="testTr">
+			<td class="testTd">A1</td>
+		</tr>
+	</table>
+	<br/>
+	<input type="button" value="행추가" id="btnAction">
+</body>
+</html>

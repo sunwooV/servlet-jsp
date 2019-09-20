@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자료형 구분</title>
+</head>
+<body>
+<script>
+	//같은 숫자인데 typeof로 type비교 시 서로 다른 type으로 리턴
+	var primitiveNumber = 273;
+	var objectNumber = new Number(273);
+	
+	//출력합니다.
+	var output = '';
+	output += typeof(primitiveNumber) + ' : ' + primitiveNumber + '\n'; //number
+	output += typeof(objectNumber) + ' : ' + objectNumber; //object
+	alert(output);
+	/*
+	number : 273
+	object : 273
+	*/
+	
+	
+	//객체의 속성인 constructor을 이용하면 같은 Type인지 비교하는 것이 명확함
+	var numberFromLiteral = 273;
+	var numberFromObject = new Number(273);
+	
+	//자료형을 확인합니다.
+	if(numberFromLiteral.constructor == Number){
+		alert('numberFromLiteral은 숫자입니다.');
+	}
+	if(numberFromObject.constructor == Number){
+		alert('numberFromObject는 숫자입니다.');
+	}
+</script>
+</body>
+</html>

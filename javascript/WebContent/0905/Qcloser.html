@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript 클로저 문제</title>
+</head>
+<body>
+<script>
+	//카운터 클로저를 생성
+	var counter = (function(){
+		var privateCounter = 0;
+		return{ 
+			val: function(){return privateCounter;},
+			inc: function(){return privateCounter++;},
+			dec: function(){return privateCounter--;}
+		}
+	})();
+	
+	//아래와 같이 호출되도록 구현하시오
+	counter.inc(); //1증가
+	counter.inc(); //1증가
+	counter.dec(); //1감소
+	console.log(counter.val()); //1출력
+</script>
+</body>
+</html>

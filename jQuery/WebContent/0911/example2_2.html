@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 선택자 예제 2</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function(){
+		$(":checked").wrap("<span style='background-color:red'>")
+	});
+</script>
+</head>
+<body>
+<form action="">
+ 11: <input type="text" name="user"><br>
+ 22: <input type="checkbox"name="vehicle"><br>
+ 33: <input type="checkbox" name="vehicle" checked="checked"><br>
+ 44: <input type="checkbox"name="vehicle"><br>
+ <input type="submit">
+</form>
+</body>
+</html>

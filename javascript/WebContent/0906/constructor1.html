@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript 생성자함수 예제 1</title>
+</head>
+<body>
+<script>
+	/*생성자 함수 : Property를 초기화하며 new와 함께 사용된다.*/
+	function Rectangle1(w,h){
+		this.width = w;
+		this.height = h;
+	}
+	var rect1 = new Rectangle1(2,4);
+	alert('width: ' + rect1.width + ', height: ' + rect1.height);
+	//width: 2, height: 4
+	
+	
+	/*생성자 함수에 메서드 속성 추가*/
+	function Rectangle2(w,h){
+		this.width = w;
+		this.height = h;
+		this.area = function(){return this.width * this.height;};
+	}
+	var r = new Rectangle2(8, 11);
+	var a = r.area();
+	alert(a); //88
+	
+	
+	/*생성자 함수를 더 효율적으로 개선: prototype 사용*/
+	function Rectangle3(w, h){
+		this.width = w;
+		this.height = h;
+	}
+	//각 인스턴스들이 공유해야 하는 property나 메서드를 정의
+	Rectangle3.prototype.area = function(){return this.width * this.height;};
+	var t = new Rectangle3(2, 3);
+	alert(t.area()); //6
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript event 예제</title>
+<script>
+	function test1(){
+		document.getElementById('a').addEventListener('click', function(){console.log('a')}); //a
+		document.getElementById('b').addEventListener('click', function(){console.log('b')}); //b a
+		document.getElementById('c').addEventListener('click', function(){console.log('c')}); //c b a
+	}
+	function test2(){
+		document.getElementById('a').addEventListener('click', function(){console.log('a'),true}); //a
+		document.getElementById('b').addEventListener('click', function(){console.log('b'),true}); //b a
+		document.getElementById('c').addEventListener('click', function(){console.log('c'),true}); //c b a
+	}
+	function test3(){
+		document.getElementById('a').addEventListener('click', function(){console.log('a')}); //a
+		document.getElementById('b').addEventListener('click', function(evt){
+														evt.stopPropagation(); //이후부터 이벤트 차단
+														console.log('b')}); // b
+		document.getElementById('c').addEventListener('click', function(){console.log('c')}); //c b
+	}
+</script>
+</head>
+<body onload='test3()'>
+<div id='a'>a Click하세요
+	<div id='b'>b Click하세요
+		<div id='c'>c Click하세요
+		</div>
+	</div>
+</div>
+</body>
+</html>

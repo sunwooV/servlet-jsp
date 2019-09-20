@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>var 키워드를 생략하면 전역변수로 설정된다.</title>
+</head>
+<body>
+<script>
+	function scopeExam(){
+		scope=20;
+		console.log("scope="+scope);
+	}
+	function scopeExam2(){
+		console.log("scope="+scope);
+	}
+	scopeExam(); //20
+	scopeExam2(); //20
+</script>
+</body>
+</html>

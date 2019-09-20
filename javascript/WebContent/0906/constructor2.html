@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript 생성자함수 예제 2</title>
+</head>
+<body>
+<script>
+	/*circle 클래스 */
+	//생성자 함수정의
+	function Circle(radius){
+		//r은 property이고 생성자함수에서 초기화
+		this.r = radius;
+	}
+	
+	//클래스 property, 생성자함수의 property
+	Circle.PI = 3.14159;
+	
+	//인스턴스 메서드
+	Circle.prototype.area = function(){return Circle.PI * this.r * this.r;};
+	
+	//클래스 메서드
+	Circle.max = function(a, b){
+		if(a.r > b.r) return a;
+		else return b;
+	}
+	
+	var c = new Circle(1.0); //인스턴스 생성
+	alert(c.r); //1
+	c.r = 2.2; //인스턴스 프로퍼티
+	alert(c.r); //2.2 (재선언)
+	var a = c.area(); //인스턴스 메서드 -> 3.14159 * 2.2 * 2.2
+	alert(a); //15.205295600000001
+	var x = Math.exp(Circle.PI); //클래스 프로퍼티 //Math.exp : e의 x제곱
+	alert(x); //23.14063122695496
+	var d = new Circle(1.2); //다른 인스턴스
+	alert(d.r); //1.2
+	var bigger = Circle.max(c, d); //클래스 메서드 -> c
+	alert(bigger.r); //c.r => 2.2
+	
+	
+</script>
+</body>
+</html>

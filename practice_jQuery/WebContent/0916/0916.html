@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> </title>
+    <style>
+        body{
+            font-size:9pt;
+        }
+        .panel {
+            width:840px;
+            height:415px;
+            border:1px solid #ccc;
+        }
+        .nav {
+            width:840px;
+            text-align:center;
+        }
+        button {
+        	margin-top:5px;
+        	padding:5px;
+        }
+    </style>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+    $(document).ready(function(){
+    	var element = document.getElementById("view"); //<img src="./car_images/1.jpg" id="view">
+ 		var src = element.src; //http://localhost:8090/practice_jQuery/0916/car_images/1.jpg
+    	var pos1 = src.lastIndexOf("/");
+    	var pos2 = src.lastIndexOf(".")
+    	var num = src.substring(pos1+1, pos2); //img의 이름을 가져온다.
+    	var inter; //setInterval을 사용하기 위한 변수
+    	
+    	$("#play").click(function(){
+    		inter = setInterval(function(){ //setInterval : 일정한 시간 간격으로 작업을 수행
+    			$("#view").attr("src", "./car_images/"+num+".jpg"); //attr():요소의 속성의 값을 가져오거나 속성을 추가
+    			num++;
+    			if(num >= 60){
+    				num = 1;
+    			}
+    		}, 100) //0.1초
+		});
+    	
+    	$("#stop").click(function(){
+			clearInterval(inter) //setInterval 을 중지
+		});
+    	
+    	$("#prev").click(function(){
+    		num--;
+    		if(num<1){
+    			num = 60;
+    		}
+    		$("#view").attr("src", "./car_images/"+ num +".jpg");
+		});
+    	
+    	$("#next").click(function(){
+    		num++;
+    		if(num>60){
+    			num = 1;
+    		}
+    		$("#view").attr("src", "./car_images/"+ num +".jpg");
+		});
+	});
+    </script>
+</head>
+
+<body>  
+    <div class="panel">
+        <img src="./car_images/1.jpg" id="view">            
+    </div>
+    <div class="nav">
+        <button id="play">play</button>
+        <button id="stop">stop</button>
+        <button id="prev">prev</button>
+        <button id="next">next</button>
+    </div>
+</body>
+
+</html>

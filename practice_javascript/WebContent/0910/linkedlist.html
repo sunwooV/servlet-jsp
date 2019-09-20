@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript linkedlist 만들기</title>
+</head>
+<body>
+<script type="text/javascript">
+	function ListNode(data){
+		this.data = data;
+		this.next = null;
+	}
+	
+	function LinkedList(){
+		
+		this.LinkedList = function(){
+			this.head = null;
+		}
+		
+		this.print = function(){
+			var current = this.head;
+			str = '';
+			
+			while(current){
+				str += current.data + ' ';
+				current = current.next;
+			}
+			return console.log(str);
+		}
+		
+		this.indexOf = function(data){
+			var current = this.head;
+			index = 0;
+			
+			while(current.data != data){
+				index++;
+				current = current.next;
+			}
+			return index;
+		}
+		
+		this.append = function(data){ //맨뒤에 추가
+			var node = new ListNode(data);
+		
+			if(this.head == null){
+				this.head = node;
+			} else{
+				var current = this.head;
+				while(current.next != null){
+					current = current.next;
+				}
+				current.next = node;
+			}
+		}
+		
+		this.removeAt = function(index){
+			var pre = this.head;
+			
+			if(index != 0){
+				for(var i=0;i<index-1;i++){
+					pre = pre.next; //삭제할 바로 전 인덱스의 데이터
+				}
+				var remove = pre.next; //삭제할 데이터
+				pre.next = remove.next; //삭제할 바로 전 데이터를 삭제할 데이터 next와 연결
+			} 
+			else if(index == 0){ //삭제할 데이터가 head이면
+				this.head = pre.next;
+			}
+		}
+		
+		this.insert = function(index, data){
+			var pre = this.head;
+			var node = new ListNode(data); //새롭게 추가할 노드
+			
+			if(index != 0){ //입력할 index가 head가 아니면
+				for(var i=0;i<index-1;i++){
+					pre = pre.next; //입력할 바로 전 인덱스의 데이터
+				}
+				var current = pre.next; //입력할 인덱스에 있던 데이터
+				pre.next = node; //입력할 바로 전 데이터와 입력할 데이터 연결
+				node.next = current; //입력한 데이터 후는 입력할 인덱스에 있던 데이터
+			}
+			else if(index == 0){ //입력할 index가 head이면
+				node.next = this.head;
+				this.head = node;
+			}
+		}
+
+	}
+	
+	var list = new LinkedList();
+	
+	list.append(15); //맨뒤에 추가
+	list.print(); //15
+	console.log(list.indexOf(15)); // value의 index를 리턴 0
+	list.append(10);
+	list.print(); //15 10
+	console.log(list.indexOf(10)); //1
+	list.append(13);
+	list.print(); //15 10 13
+	console.log(list.indexOf(13)); //2
+	console.log(list.indexOf(10)); //1
+	list.append(11); 
+	list.append(12);
+	list.print(); //15 10 13 11 12
+	list.removeAt(1); // 특정 index를 삭제
+	list.print(); //15 13 11 12
+	list.removeAt(3);
+	list.print(); //15 13 11
+	list.append(14);
+	list.print(); //15 13 11 14
+	list.insert(0,16); // 특정 index에 추가
+	list.print(); //16 15 13 11 14
+	list.insert(1,17);
+	list.print(); //16 17 15 13 11 14
+	
+</script>
+</body>
+</html>

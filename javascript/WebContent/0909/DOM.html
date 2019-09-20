@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM(Document Object Model)</title>
+</head>
+<body>
+	<h1>쇼핑목록</h1>
+	<p title="a gentle reminder">물건을 선택해 주세요</p>
+	<ul id="purchases">
+		<li>땅콩</li>
+		<li>치즈</li>
+	</ul>
+	
+	<script>
+		//getElementById:ID를 통해 특정 요소노드의 Object를 리턴한다.
+		//typeof: 변수의 type을 리턴한다.
+		alert(typeof document.getElementById("purchases")); //object
+		
+		//getElementByTagName:특정태그를 사용하는 요소노드들을 배열로 리턴한다.
+		var items = document.getElementsByTagName("li"); //<li>태그에 대한 목록리스트
+		for(var i=0;i<items.length;i++){
+			alert(typeof items[i]); //object, object
+		}
+		
+		//문서내에 모든 요소노드의 개수를 알고 싶으면
+		alert(document.getElementsByTagName("*").length); //11
+		
+		//특정 요소노드 하위로 얼마나 많은 요소노드가 있는지 확인
+		var shopping = document.getElementById("pruchases");
+		var items = shopping.getElementsByTagName("*");
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>clone 예제 2</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function(){
+		$("button").click(function(){
+			$("body").append($("p:first").clone(true));
+		});
+		$("p").click(function(){
+			$(this).animate({fontSize:"+=1px"});
+		});
+	});
+</script>
+</head>
+<body>
+	<p>Click this paragraph to increase text size.</p>
+	<button>click here</button>
+</body>
+</html>

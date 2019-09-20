@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>child 제거</title>
+<script>
+	function myFunction(){
+		var list = document.getElementById("myList");
+		list.removeChild(list.childNodes[0]); //child 제거
+	}
+</script>
+</head>
+<body>
+	<ul id="myList"><li>Coffe</li><li>Tea</li><li>Milk</li></ul>
+	<button onclick="myFunction()">Try it</button>
+</body>
+</html>

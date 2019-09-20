@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>모든 TextNode의 데이터를 대문자로 변경</title>
+<script>
+	function upcase(document){
+		if(document.nodeType == 3){
+			//노드가 Text노드이면 텍스트를 대문자로 바꾼다.
+			document.data = document.data.toUpperCase();
+		} else {
+			//현재 노드가 Text 노드가 아니면 각 자식에 대해 재귀적으로 호출
+			var kids = document.childNodes;
+			for(var i=0;i<kids.length;i++) upcase(kids[i]);
+		}
+	}
+</script>
+</head>
+<body onload="upcase(document)">
+ <div>
+   <h1>aa</h1>
+   <h2>bb</h2>
+ </div>
+ <div>
+   <h1>cc</h1>
+   <h1>dd</h1>
+ </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상속</title>
+</head>
+<body>
+<script>
+	function Rectangle(w, h){
+		//변수를 선언
+		var width = w;
+		var height = h;
+		
+		//메서드를 선언
+		this.getWidth = function(){return width;};
+		this.getHeight = function(){return height;};
+		this.setWidth = function(w){
+			if(w<0){
+				throw '길이는 음수일 수 없습니다.';
+			} else {
+				width = w;
+			}
+		};
+		
+		this.setHeight = function(h){
+			if(h<0){
+				throw '높이는 음수일 수 없습니다.';
+			} else{
+				height = h;
+			}
+		};
+	}
+	
+	Rectangle.prototype.getArea = function(){
+		return this.getWidth() * this.getHeight();
+	};
+	
+	//생성자 함수 Rectangel 상속하여 생성자 함수 Square 만들기
+	function Square(length){
+		this.base = Rectangle; //생성자 함수 Rectangle를 속성으로
+		this.base(length, length); //생성자 함수 Rectangle 호출
+	}
+	
+	//Square의 Prototype 가 Rectangle의 Prototype영역을 가리키기
+	Square.prototype = Rectangle.prototype;
+	Square.prototype.constructor = Square; //생략 가능
+	
+	//변수를 선언
+	var rectangle = new Rectangle(5,7);
+	var square = new Square(5);
+	alert(rectangle.getArea() + ':' + square.getArea());
+	
+	상속확인
+	alert(square instanceof Rectangle);
+</script>
+</body>
+</html>

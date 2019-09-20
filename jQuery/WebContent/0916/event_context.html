@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>매개변수 context: 특정부분에 선택자를 적용하고 싶을 때 사용</title>
+<style>
+*{
+	margin:0px;
+	padding:0px;		
+}
+div{
+	margin:5px; padding:3px;
+	border:3px solid black;
+	border-radius:10px;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function(){
+		//이벤트를 연결
+		$('div').click(function(){
+			//변수를 선언
+			var header = $('h1', this).text(); //h1 tag를 선택하는데 this범위 내로 한정
+			var paragraph = $('p', this).text();
+			
+			//출력
+			alert(header + '\n' + paragraph);
+		});
+	});
+</script>
+</head>
+<body>
+<div>
+	<h1>Header 1</h1>
+	<p>Paragraph</p>
+</div>
+<div>
+	<h1>Header 2</h1>
+	<p>Paragraph</p>
+</div>
+<div>
+	<h1>Header 3</h1>
+	<p>Paragraph</p>
+</div>
+</body>
+</html>

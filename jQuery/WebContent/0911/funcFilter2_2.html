@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 함수필터 선택자 예제 2</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function(){
+		var jb = $('li').get(0); //0번째요소를 리턴
+
+		$('div').append('<p>' + jb.innerHTML + '</p>');
+		
+	});
+</script>
+</head>
+<body>
+	<ul>
+		<li>Lorem</li>
+		<li>Ipsum</li>
+	</ul>
+	<div></div>
+</body>
+</html>

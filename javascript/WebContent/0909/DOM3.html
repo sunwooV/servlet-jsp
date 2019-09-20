@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>nodeType</title>
+</head>
+<body>
+	<p id="description">사진을 선택하세요</p>
+<script>
+	var description = document.getElementById('description');
+	//description.nodeValue는 null을 리턴한다. description이 아직 텍스트 노드를 가리키는 것이 아니기 때문
+	//첫번째 자신노드인 텍스트노드를 가져오기 위해 위와 같이 구현
+	alert(description.childNodes[0].nodeValue); //사진을 선택하세요.
+	
+	var node = description;
+	node.firstChild = node.childNodes[0];
+	node.lastChild = node.childNodes[node.childNodes.length-1];
+	alert(node.firstChild.nodeValue);//사진을 선택하세요.
+	alert(node.lastChild.nodeValue);//사진을 선택하세요.
+</script>
+</body>
+</html>

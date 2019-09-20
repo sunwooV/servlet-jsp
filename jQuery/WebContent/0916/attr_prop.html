@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>attr/prop 차이</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	//attr:HTML의 Attribute
+	//prop:javascript Property
+	$(document).ready(function(){
+		var $checkbox = $('#chk');
+		console.log($checkbox.attr('checked')); //checked
+		console.log($checkbox.prop('checked')); //true
+	});
+</script>
+</head>
+<body>
+<input type="checkbox" name="" id="chk" checked="checked">
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>innerfade() 메서드 구현</title>
+<style>
+*{
+	margin:0px; padding:0px;
+}
+ul{
+	list-style:none;
+}
+img{
+	width:500px;
+	height:350px;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function(){
+		//innerfade 플러그인을 적용
+		$('#inner-fade').innerfade({
+	        animationtype: 'fade',
+	        speed:750,
+	        timeout:2000,
+	        type:'random',
+	        containerheight:'350px'
+	    });
+	});
+</script>
+</head>
+<body>
+<ul id="inner-fade">
+	<li><img src="1.jpg"/></li>
+	<li><img src="2.jpg"/></li>
+	<li><img src="3.jpg"/></li>
+	<li><img src="4.jpg"/></li>
+	<li><img src="5.jpg"/></li>
+</ul>
+</body>
+</html>

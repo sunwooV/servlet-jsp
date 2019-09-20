@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체의 속성 추가와 제거</title>
+</head>
+<body>
+<script>
+	var student={}; //빈객체 생성
+	//속성 추가
+	student.이름 = '윤인성';
+	student.취미 = '악기';
+	student.특기 = '프로그래밍';
+	student.장래희망 = '생명공학자';
+	
+	//메서드 추가
+	student.toString = function(){
+		var output = '';
+		for(var key in this){//key는 속성명
+			//toString() 메서드는 출력하지 않게 합니다.
+			if(key != 'toString'){
+				output += key + '\t' + this[key] + '\n'; //key:property, this[key]:property value
+				/*
+				이름 윤인성
+				취미 악기
+				특기 프로그래밍
+				장래희망 생명공학자
+				*/
+			}
+		}
+		return output;
+	};
+	alert(student.toString());
+	
+	//속성 제거
+	delete(student.장래희망);
+	alert(student.toString());
+	/*
+	이름 윤인성
+	취미 악기
+	특기 프로그래밍
+	*/
+</script>
+</body>
+</html>

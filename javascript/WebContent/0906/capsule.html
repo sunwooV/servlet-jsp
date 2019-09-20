@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캡슐화 실습</title>
+</head>
+<body>
+<script>
+	function Rectangle(w, h){
+		//변수를 선언합니다.
+		var width = w;
+		var height = h;
+		
+		//메서드를 선언합니다.
+		this.getWidth = function(){return width;};
+		this.getHeight = function(){return height;};
+		this.setWidth = function(w){
+			if(w < 0){
+				throw '길이는 음수일 수 없습니다.';
+			} else{
+				width = w;
+			}
+		};
+		this.setHeight = function(h){
+			if(h<0){
+				throw '높이는 음수일 수 없습니다.';
+			} else{
+				height = h;
+			}
+		};
+	}
+	Rectangle.prototype.getArea = function(){
+		return this.getWidth() * this.getHeight();
+	};
+	
+	//변수를 선언
+	var rectangle = new Rectangle(5, 7);
+	//rectangle.setWidth(-2); // -> throw 길이는 음수일 수 없습니다 로 간다.
+	rectangle.setWidth(7); //49
+	
+	//출력
+	alert('AREA : ' + rectangle.getArea());
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문제 2</title>
+</head>
+<body>
+배열 a의 각 원소를 지정된 함수f로 전달하여 얻은 결과들을 원소로 하는 배열을 반환
+<script>
+	function mapArray(/*array*/a, /*function*/f){
+		var r = [];
+		var length = r.length;
+		for(var i=0;i<length;i++){
+			r[i] = f(r[i]);
+		}
+		return r;
+	}
+</script>
+</body>
+</html>

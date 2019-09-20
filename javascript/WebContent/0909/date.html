@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript Date 예제 추가</title>
+</head>
+<body>
+<script>
+	var d = new Date();
+	console.log(d.getFullYear()); //set 2019
+	console.log(d.getMonth()); //set 8
+	console.log(d.getDate()); //set 9
+	console.log(d.getHours()); //set 15
+	console.log(d.getMinutes()); //set 59
+	console.log(d.getSeconds()); //set 0
+	console.log(d.getMilliseconds()); //426
+	console.log(d.getDay()); //0~6(요일 일-0, 월-1 ...) 1
+	
+	var d = new Date("2015-03-25");
+	var d = new Date("2015-03");
+	//YYYY-MM-DDTHH:MM:SSZ
+	var d = new Date("2015-03-25T12:00:00Z");
+</script>
+</body>
+</html>

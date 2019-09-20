@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0909실습</title>
+</head>
+<body>
+<script>
+
+	//1. Stack 객체를 만들기
+	//Stack 생성자 함수
+	function Stack(){
+		this.data = [];
+		this.push = push;
+		this.pop = pop;
+		this.peek = peek;
+		this.clear = clear;
+		this.size = size;
+		this.isEmpty = isEmpty;
+		this.print = print;
+		this.index = 0;
+		this.result = [];
+	}
+	
+	//Stack - push
+	function push(element){
+		this.data[this.index++] = element;
+	}
+	
+	//Stack - pop
+	function pop(){
+		this.data[--this.index];
+	}
+	
+	//Stack - peek
+	function peek(){
+		return this.data[this.index-1];
+	}
+	
+	//Stack - clear
+	function clear(){
+		this.index = 0;
+	}
+	
+	//Stack - size
+	function size(){
+		return this.index;
+	}
+	
+	//Stack - inEmpty
+	function isEmpty(){
+		return this.index == 0;
+	}
+	
+	//Stack - print
+	function print(){
+		for(var i=0;i<this.size();i++){
+			this.result.push(this.data[i]);
+		}
+		console.log(this.result);
+	}
+	
+	//Test
+	var stack = new Stack();
+	console.log(stack.isEmpty()); //결과는 true
+	stack.push(5);
+	stack.push(8);
+	console.log(stack.peek()); //8
+	stack.push(11);
+	console.log(stack.size()); //3
+	console.log(stack.isEmpty()); //false
+	stack.push(15);
+	stack.pop();
+	stack.pop();
+	console.log(stack.size()); //2
+	stack.print(); //[5, 8]
+	
+
+	//2. Queue 객체를 만들기 
+	//생성자
+	function Queue(){
+		this.data = [];
+		this.enqueue = enqueue;
+		this.isEmpty = isEmpty;
+		this.print = print;
+		this.size = size;
+		this.dequeue = dequeue;
+		this.first = 0;
+		this.last = 0;
+	}
+	
+	//Queue - enqueue : 데이터 넣기
+	function enqueue(element){
+		this.data[this.last++] = element;
+	}
+	
+	//Queue - dequeue : 데이터 빼기
+	function dequeue(){
+		this.data[this.first++];
+	}
+	
+	//Queue - isEmpty : 데이터 비었는지 확인
+	function isEmpty(){
+		return (this.last - this.first) == 0;
+	}
+	
+	//Queue - print : 데이터 출력
+	function print(){
+		var result = '';
+		for(var i=this.first;i<this.last;i++){
+			result += (this.data[i] + ', ');
+		}
+		console.log(result);
+	}
+	
+	//Queue - size 
+	function size(){
+		return this.last - this.first;
+	}
+	
+	var queue = new Queue();
+	console.log(queue.isEmpty()); //true
+	queue.enqueue("John");
+	queue.enqueue("Jack");
+	queue.print(); //John, Jack
+	queue.enqueue("Camila");
+	queue.print(); //John, Jack, Camila
+	console.log(queue.size()); //3
+	console.log(queue.isEmpty()); //false
+	queue.dequeue();
+	queue.dequeue();
+	queue.print(); //Camila
+	
+	// 3. Set 객체를 만들기 
+	//생성자
+	function Set(){
+		this.index = 0;
+		this.data = {};
+		this.result = {};
+		this.add = add;
+		this.remove = remove;
+		this.values = values;
+		this.has = has;
+		this.clear = clear;
+		this.size = size;
+		
+		this.union = union;
+	}
+	
+	//Set - add : 데이터 추가
+	function add(element){
+		if(!this.has(element)){
+			this.data[element] = element;
+			return true;
+		}
+		return false;
+	}
+	
+	//Set - remove : 데이터 삭제
+	function remove(element){
+		if(this.has(element)){
+			delete this.data[element];
+			return true;
+		}
+		return false;
+	}
+
+	//Set - values : 데이터
+	function values(){
+		return Object.keys(this.data);
+	}
+	
+	//Set - has : 해당 데이터를 가지고 있는지 없는지 확인
+	function has(element){
+		return this.data.hasOwnProperty(element);
+	}
+	
+	//Set - clear : 데이터 초기화
+	function clear(){
+		this.data = {};
+	}
+	
+	//Set - size
+	function size(){
+		return Object.keys(this.data).length;
+	}
+	
+	//Test
+	var set = new Set();
+	set.add(1);
+	console.log(set.values()); //["1"]
+	console.log(set.has(1)); //true -> 1을 가지고 있냐
+	console.log(set.size()); //1
+	set.add(2);
+	console.log(set.values()); //["1", "2"]
+	set.remove(1);
+	console.log(set.values()); //["2"]
+	set.clear();
+	console.log(set.values()); //[]
+	
+	// 4. Set에 union 메소드 추가하기 
+	//unionSet
+	function union(otherSet){
+		var unionSet = new Set();
+		var values = this.values();
+	    for (var i=0; i<values.length; i++){
+            unionSet.add(values[i]);
+        }
+        values = otherSet.values();
+        for (var i=0; i<values.length; i++){
+            unionSet.add(values[i]);
+        }
+        return unionSet;
+	}
+	
+	var setA = new Set();
+	setA.add(1);
+	setA.add(2);
+	setA.add(3);
+	var setB = new Set();
+	setB.add(3);
+	setB.add(4);
+	setB.add(5);
+	setB.add(6);
+	var unionAB = setA.union(setB); //set을 return
+	console.log(unionAB.values());
+	
+</script>
+</body>
+</html>

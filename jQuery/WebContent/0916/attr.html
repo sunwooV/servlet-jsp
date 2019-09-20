@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문서객체 생성:text노드가 없는 문서객체 생성</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	//예제 1
+	$(document).ready(function(){
+		$('<img/>').attr('src', '4.jpg').appendTo('body');
+	});
+	
+	//예제2:속성을 입력하는 다른 방식
+	$(document).ready(function(){
+		$('<img/>', { // Property를 넣어서 만든다.
+			src:'4.jpg',
+			width:350,
+			height:250
+		}).appendTo('body');
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>

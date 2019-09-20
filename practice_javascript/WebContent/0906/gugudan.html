@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구구단 출력</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+몇 단을 만들까요? <input type="text" id="dan"> <input type="button" value="구구단 만들기" onClick="gugu()">
+<script type="text/javascript">
+	function gugu(){
+		var dan = $("#dan").val();
+		document.write("<h1 align='center'>" + dan + "단 구구단</h1><br>");
+		document.write("<table border='1px' align='center'><tr>");
+		document.write("<td bgcolor='yellow' width='50px'>X</td>");
+		for(var i=1;i<=dan;i++){
+			document.write("<td bgcolor='pink' width='50px'>" + i + "</td>");
+		}
+		document.write("</tr>");
+		for(var j=1;j<=dan;j++){
+			document.write("<tr><td bgcolor='pink' width='50px'>" + j + "</td>");
+			for(var k=1;k<=dan;k++){
+				document.write("<td>" + j*k + "</td>");
+			}
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	}
+</script>
+</body>
+</html>

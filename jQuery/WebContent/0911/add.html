@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery add 예제</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	//1. p와 div에 같은 css 적용
+	$(document).ready(function(){
+		$("p").add("div").css({"border":"2px solid green"});
+	});
+	
+	//2. p를 선택하고 추가로 이전인 div#after도 추가
+	//addBack(): 현재 선택한 요소와 함께 이전에 선택한 요소도 선택하게 합니다.
+	$(document).ready(function(){
+		$("div#after").find("p").addBack().css({"backgroundColor":"aqua"});
+		//id가 after인 div 요소의 하위 요소 중 p 요소를 선택 + div#after 선택
+	});
+</script>
+</head>
+<body>
+	<p>안녕하세요</p>
+	<span>데브쿠마입니다.</span>
+	<div>반갑습니다.</div>
+	
+	<div id="after">
+		<p>.addBack()적용 후</p>
+		<p>안녕하세요.데브쿠마입니다.</p>
+	</div>
+</body>
+</html>

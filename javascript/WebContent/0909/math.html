@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript Math 예제 추가</title>
+</head>
+<body>
+<script>
+	console.log(Math.round(4.7)); //5
+	console.log(Math.pow(8,2)); //64, 제곱
+	console.log(Math.sqrt(64)); //8, 루트
+	console.log(Math.abs(-4.7)); //4.7
+	console.log(Math.ceil(4.4)); //5, 올림
+	console.log(Math.floor(4.7)); //4, 내림
+	console.log(Math.min(0, 150, 30, 20, -8, -200)); //-200, 최소
+	console.log(Math.max(0, 150, 30, 20, -8, -200)); //150, 최대
+	console.log(Math.random()); //0~1
+	console.log(Math.floor(Math.random() * 10)); //0~9
+	console.log(Math.floor(Math.random() * 10) + 1); //1~10
+	
+	//min~max 사이 random value, min/max 모두 포함
+	function getRndInteger(min, max){
+		return Math.floor(Math.random() * (max - min + 1) + min);
+	}
+	
+	console.log(getRndInteger(10,20));
+</script>
+</body>
+</html>

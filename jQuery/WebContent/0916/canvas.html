@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 객체</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function(){
+		var cavas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+		//이벤트 연결
+		$(canvas).on({
+			mousedown:function(event){
+				//위치를 얻어낸다.
+				var position = $(this).offset();
+				var x = event.pageX - position.left; //pageX:브라우저의 화면을 기준으로 한 마우스의 x좌표 위치
+				var y = event.pageY - position.top; //pageY:브라우저의 화면을 기준으로 한 마우스의 y좌표 위치
+				
+				context.beginPath();
+				context.moveTo(x, y);
+			},
+			mouseup:function(event){
+				//위치를 얻어낸다.
+				var position = $(this).offset();
+				var x = event.pageX - position.left;
+				var y = event.pageY - position.top;
+				
+				context.lineTo(x, y);
+				context.stroke();
+			}
+		});
+	});
+</script>
+</head>
+<body>
+<canvas id="canvas" width="700" height="400" style="border:3px solid black">
+</canvas>
+</body>
+</html>

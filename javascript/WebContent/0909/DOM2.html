@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성 다루기</title>
+</head>
+<body>
+<script>
+	//getElementsById를 사용하면 특정 아이디를 가진 요소노드에 바로 접근 가능
+	//getElementTagName을 사용하면 특정 태그를 가진 요소노드에 바로 접근 가능
+	//getAttribute:getElementById, getElementByTagName을 통해
+	//요소노드에 접근한 뒤 각 속성값들을 얻기 위해 사용
+	
+	var paras = document.getElementsByTagName("p");
+	for(var i=0;i<paras.length;i++){
+		var title_text = paras[i].getAttribute("title");
+		if(title_text) //if(title_text != null)과 같은 의미
+			alert('1' + title_text);
+	}
+	
+	//setAttribute:p 태그의 title속성을 변경하고자 한다면
+	var shopping = document.getElementById("purchases");
+	//만약 setAttribute의 첫번째 인자인 속성이 해당 요소노드에 없다면 해당 속성을 생성하여 준다.
+	shopping.setAttribute('title', 'a list of goods');
+	
+	
+	/*childNodes:요소노드의 속성으로서 모든 자식을 포함하는 배열을 리턴한다.
+	-요소노드, 텍스트노드를 child배열에 포함하여 반환*/
+	
+	//getElementByTagName은 결과를 배열로 리턴한다. body는 문서에서 하나만 존재하므로 0번째 값을 리턴하면된다.
+	//body의 childNode들을 조사해 보면 body 바로 밑에 연결되어 있는 node들만 가져온다.
+	var body_element = document.getElementsByTagName("body")[0];
+	var child_elements = body_element.childNodes;
+	
+	for(var i=0;i<child_elements.length;i++){
+		alert('2' + child_elements[i].nodeName); //nodeName:node의 tag명
+		/*
+		#text
+		SCRIPT
+		 */
+	}
+</script>
+</body>
+</html>

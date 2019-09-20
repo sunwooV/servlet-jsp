@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>end():문서 객체 탐색 취소</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+/*
+	//홀수번째는 흰색, 짝수번째는 빨강
+	$(document).ready(function(){
+		$('h1').css('background', 'orange');
+		$('h1:even').css('color', 'white');
+		$('h1:odd').css('color', 'red');
+	});
+*/
+	
+	//end():처음 대상을 선택한 부분으로 돌아간다.
+	//end()함수 사용: filter(':even').css('color','white') 가 실행된 뒤 end()를 만나면 filter(':odd').css('color', 'red')만 남는다.
+	// => $('h1').css('background', 'orange').filter(':odd').css('color', 'red')
+	$(document).ready(function(){
+		$('h1').css('background', 'orange').filter(':even').css('color','white').end().filter(':odd').css('color', 'red');
+	});
+	
+/*
+	※end()란 처음대상을 선택한부분으로 돌아간다고 생각하시면된답니다.
+	예) $('.div0').find('p').css("color","red").end().find('span').css("color","blue");
+	파란색부분의 소스가 실행을한뒤 end()메서드를 만나면 파란색/빨간색 부분은 없어지고
+	주황색 소스만 남는다고 생각하시면된답니다.
+	$('.div0').find('span').css("color","blue"); <== 이렇게된답니다.
+*/
+</script>
+</head>
+<body>
+	<h1>신</h1>
+	<h1>선</h1>
+	<h1>우</h1>
+	<h1>입</h1>
+	<h1>니</h1>
+	<h1>다</h1>
+</body>
+</html>

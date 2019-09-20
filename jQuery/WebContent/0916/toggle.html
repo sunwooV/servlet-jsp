@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>toggle() 효과 예제</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	//이벤트 연결
+	$(document).ready(function(){
+		$('button').click(function(){
+			//간단한 효과를 적용
+			$('.page').toggle('slow'); //toggle(): show()와 hide() 번갈아가며 호출
+		});
+	});
+</script>
+</head>
+<body>
+<button>Toggle Show</button>
+<div class="page">
+	<h1>Lorem ipsum dolor sit amet</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+</body>
+</html>

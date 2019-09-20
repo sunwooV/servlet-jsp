@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 객체확장 예제</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	//1. a에 b를 merge하고 그 결과에 c를 merge
+	var a = {
+			id:1,
+			name:'TAM'
+	};
+	
+	var b = {
+			name:'TAM-new',
+			hobby:'football'
+	};
+	
+	var c = {
+			name:'TAM-new-new',
+			job:'designer'
+	};
+	
+	$.extend(a,b,c);
+	console.log(a);
+	//{id: 1, name: "TAM-new-new", hobby: "football", job: "designer"}
+	
+	
+	//2. a에 b를 merge하는데 원소스 유지
+	var d = {
+			id:1,
+			name:'TAM'
+	};
+	
+	var e = {
+			name:'TAM-new',
+			hobby:'football'
+	};
+	
+	var newobject = $.extend({}, d, e);
+	console.log(newobject);
+	//{id: 1, name: "TAM-new", hobby: "football"}
+	
+	
+	//3. property가 object일 때
+	var f = {
+			style:{
+				top:100,
+				left:200,
+				width:300
+			},
+			duration:1000
+	};
+	
+	var g = {
+			style:{
+				height:400
+			}
+	};
+	
+	$.extend(f, g);
+	console.log(f);
+	//{style: {…}, duration: 1000}
+</script>
+</head>
+<body>
+
+</body>
+</html>

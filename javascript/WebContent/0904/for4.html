@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>for문 예제 --- 기존기능에 영향을 주지 않으면서 새로운 Property 추가</title>
+<script>
+var mySymbol1 = Symbol('mySymbol');
+var mySymbol2 = Symbol('mySymbol');
+mySymbol1 === mySymbol2; //false
+var prop2 = Symbol('prop2');
+var obj={
+		prop1:1,
+		[prop2]:2,
+};
+for(var key in obj){
+	console.log(key); //prop1만 출력됨
+}
+obj[prop2]; //2, 대괄호[]로만 접근 가능
+</script>
+</head>
+<body>
+
+</body>
+</html>

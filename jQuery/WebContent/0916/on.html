@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>on() 메서드 사용</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function(){
+		//이벤트를 연결
+		$('h1').on('click', function(){
+			//현재 Object의 내용뒤에 +를 붙인다.
+			$(this).html(function(index, html){
+				return html + '+';
+			});
+		});
+	});
+</script>
+</head>
+<body>
+<h1>Header-0</h1>
+<h1>Header-1</h1>
+<h1>Header-2</h1>
+</body>
+</html>

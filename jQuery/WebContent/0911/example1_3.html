@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 선택자 예제</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function(){
+		$("tr:even").css("background-color", "yellow");
+	});
+</script>
+</head>
+<body>
+<table border="1">
+ <tr>
+   <th>Company</th>
+   <th>Country</th>
+ </tr>
+ <tr>
+   <td>Alfreds Futterkiste</td>
+   <td>Germany</td>
+ </tr>
+ <tr>
+   <td>Berglunds snabbköp</td>
+   <td>Sweden</td>
+ </tr>
+ <tr>
+   <td>Centro comercial Moctezuma</td>
+   <td>Mexico</td>
+ </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>내장 함수</title>
+</head>
+<body>
+<script>
+	//코드 실행 함수
+	var willEval = '';
+	willEval += 'var number = 10;';
+	willEval += 'alert(number);';
+	
+	//String을 javascript 코드로 실행
+	eval(willEval);
+	
+	
+	//숫자확인함수
+	var number = 1/0;
+	alert(number + ':' + isFinite(number)); //Infinity:false
+	
+	
+	//변수를 선언합니다.
+	var value=-10/0;
+	
+	//출력합니다.
+	if(value==Infinity){
+		alert('Infinity입니다.');
+	} else{
+		alert('Infinity가 아닙니다.'); //출력
+	}
+</script>
+</body>
+</html>
